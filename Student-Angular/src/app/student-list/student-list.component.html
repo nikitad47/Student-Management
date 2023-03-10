@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark center">
+  <form class="form-inline center" style="display: contents;">
+    <button class="btn btn-outline-secondary" style="background-color: white;">
+      <a routerLink="students" routerLinkActive="active" class="nav-link" style="color: black;">Student List</a>
+    </button>
+    <button class="btn btn-outline-secondary" style="background-color: white;" (click) = "addStudent()">
+      <a routerLink="create-student" routerLinkActive="active" class="nav-link" style="color: black;">Add Student</a>
+    </button>
+  </form>
+</nav>
+
+<h1 class="center">Student List</h1>
+<table class = "table table-striped" style="margin-top: 3%;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email Id</th>
+            <th>PhoneNumber</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let student of students" >
+            <td> {{ student.name}} </td>
+            <td> {{ student.email}} </td>
+            <td> {{ student.phoneNumber}} </td>
+            <td> {{ student.age}}</td>
+            <td>
+                <button (click) = "updateStudent(student.id!)" class = "btn btn-info" style="margin-left: 10px"> Update</button>
+                <button (click) = "deleteStudent(student.id!)" class = "btn btn-danger" style="margin-left: 10px; background-color: red;"> Delete</button>
+                <button (click) = "studentDetails(student.id!)" class = "btn btn-info" style="margin-left: 10px; background-color:blueviolet;"> View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
